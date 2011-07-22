@@ -1,5 +1,3 @@
-require 'rake'
-require 'rubygems'
 require 'cucumber'
 require 'cucumber/rake/task'
 
@@ -9,7 +7,17 @@ task :run do |t|
   PromanApp.run!
 end
 
-desc "run cucumber features"
-Cucumber::Rake::Task.new(:features) do |t|
-  t.cucumber_opts = "features --format pretty"
+namespace :features do
+  Cucumber::Rake::Task.new(:all) do |t|
+    t.profile = "default"
+  end
+
+
+  Cucumber::Rake::Task.new(:ok) do |t|
+    t.profile = "ok"
+  end
+
+  Cucumber::Rake::Task.new(:wip) do |t|
+    t.profile = "wip"
+  end
 end

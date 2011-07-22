@@ -12,8 +12,6 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
-    when /^the cucumber test page$/
-      '/cuketest'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
