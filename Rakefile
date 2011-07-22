@@ -1,5 +1,6 @@
 require 'cucumber'
 require 'cucumber/rake/task'
+require 'rspec/core/rake_task'
 
 desc "run the server"
 task :run do |t|
@@ -20,4 +21,9 @@ namespace :features do
   Cucumber::Rake::Task.new(:wip) do |t|
     t.profile = "wip"
   end
+end
+
+namespace :spec do
+  desc "Run all examples"
+  RSpec::Core::RakeTask.new('all')
 end
